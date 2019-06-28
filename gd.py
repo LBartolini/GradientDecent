@@ -3,7 +3,7 @@ import numpy as np
 import random as r
 
 
-def gradientDecent(funct, data_to_display=np.arange(-5, 5, 0.3), precision_points=3, lr=1e-2, display=False, steps_to_display=300, logspace_limits=(-1, 0), explorer_reduction=10, precision_tangent=1e-4):
+def gradientDescent(funct, data_to_display=np.arange(-5, 5, 0.3), precision_points=3, lr=1e-2, display=False, steps_to_display=300, logspace_limits=(-1, 0), explorer_reduction=10, precision_tangent=1e-4):
 	minimum = None
 
 	points = np.array([r.choice(data_to_display) for _ in range(precision_points)])
