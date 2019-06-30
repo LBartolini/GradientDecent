@@ -26,6 +26,11 @@ P.S. This part has to be done.
 Receive a float value that tells when to stop to search. It refers to the derivative of the best of the points used.
  * treshold_to_stop:
 Receive an integer value that is used to stop the precess if it's taking too many steps to converge.
+ * base_offset:
+Receive a float value, tells the minimum distance between the explorers and the main point.
+ * explorer_importance:
+Receive an integer value, tells the importance of the centre to the explorer. Bigger values say to explorer to search far away from their friends.
+
 
 The main.py file is just an example to see how it is supposed to work.
 
