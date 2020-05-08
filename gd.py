@@ -12,7 +12,8 @@ def gradientDescent(funct, data_to_display=np.arange(-5, 5, 0.001), precision_po
 	curve = funct(data_to_display)
 	if display:
 		plt.plot(data_to_display, curve, c='green')
-		plt.scatter(points, funct(points), color='red')
+		points_to_display = [n for n in points if np.min(data_to_display) <= n <= np.max(data_to_display)]
+		plt.scatter(points_to_display, funct(points_to_display), color='red')
 		plt.show()
 	yp_points = [5 for _ in range(precision_points)]
 	step = 0
@@ -37,18 +38,20 @@ def gradientDescent(funct, data_to_display=np.arange(-5, 5, 0.001), precision_po
 
 		if display and step%steps_to_display==0:
 			plt.plot(data_to_display, curve, c='green')
-			plt.scatter(points, funct(points), color='red')
+			points_to_display = [n for n in points if np.min(data_to_display) <= n <= np.max(data_to_display)]
+			plt.scatter(points_to_display, funct(points_to_display), color='red')
 			plt.scatter(minimum_x, funct(minimum_x), color='blue')
 			plt.show()
 
 	if display:	
 		plt.plot(data_to_display, curve, c='green')
-		plt.scatter(points, funct(points), color='red')
+		points_to_display = [n for n in points if np.min(data_to_display) <= n <= np.max(data_to_display)]
+		plt.scatter(points_to_display, funct(points_to_display), color='red')
 		plt.show()
 	minimum_y = funct(minimum_x)
 	return minimum_x, minimum_y, step
 
 def deriv(funct, x):
-	h = 1e-5
+	h = 1e-9
 	x = np.array(x)
 	return (funct(x+h)-funct(x-h))/(2*h)
